@@ -7,8 +7,6 @@ let app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(parser.json());
-app.set('port', (process.env.PORT || 1129));
-
 
 app.post('/repos', function (req, res) {
   git.getReposByUsername(req.body.username, (results) => {
@@ -34,7 +32,7 @@ app.get('/repos', function (req, res) {
 
 });
 
-app.listen(app.get('port'), function() {
-  console.log(`listening on port ${app.get('port')}`);
+app.listen(process.env.PORT || 1129, function() {
+  console.log(`listening on port ${process.env.PORT || 1129}`);
 });
 
