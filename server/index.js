@@ -32,7 +32,9 @@ app.get('/repos', function (req, res) {
 
 });
 
-app.listen(process.env.PORT || 1129, function() {
-  console.log(`listening on port ${process.env.PORT || 1129}`);
+let port = 1129;
+
+app.listen(process.env.PORT || port, function() {
+  console.log(`listening on port ${process.env.PORT || port}`);
 });
 
